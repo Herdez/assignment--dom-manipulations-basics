@@ -15,7 +15,6 @@ document.querySelector("#double button").addEventListener('click',function(){
   if (numberToShow <= 268435456) {
     document.querySelector('#compoundInvestment').textContent = numberToShow;
   }
-
 })
 
 document.querySelector("#blow-up button").addEventListener('click',function(){
@@ -26,7 +25,6 @@ document.querySelector("#blow-up button").addEventListener('click',function(){
   if (doubleHeigth <= 320 && doubleWidth <= 320) {
       document.querySelector('#blow-up .answer-box .circle-red').style.height = doubleHeigth + "px";
       document.querySelector('#blow-up .answer-box .circle-red').style.width = doubleWidth + "px";
-      
   } else {
       doubleWidth = 40;
       doubleHeigth = 40;
@@ -43,15 +41,17 @@ document.querySelector("#remove button").addEventListener('click',function(){
   inactiveItem.forEach(function(li){
       listItem.removeChild(li);
   });
-
 })
 
 
 document.querySelector("#reverse-squares button").addEventListener('click',function(){
   // TASK #5
-  var parent = document.getElementById('squares-box').setAttribute(
-   "style", "display: flex; flex-direction: row-reverse");
-
+  var squareList = document.querySelectorAll('.square');
+  var container = document.querySelector('#squares-box');
+  var arrayList = Array.from(squareList);
+  for (var i = arrayList.length - 1; i >= 0; i--){
+      container.appendChild(arrayList[i]);
+  };
 })
 
 document.querySelector("#pig-latin button").addEventListener('click',function(){
@@ -62,10 +62,9 @@ document.querySelector("#pig-latin button").addEventListener('click',function(){
   list.forEach(function(li){
     li.innerText = li.innerText.split("").reverse().join("");
   });
-
 })
 
-var key = 1;
+var key = 2;
 var max = 10;
 document.querySelector("#cycle-image button").addEventListener('click',function(){
    //TASK #7
